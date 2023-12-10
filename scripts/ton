@@ -50,8 +50,8 @@ for pane in "${panes[@]}"; do
 
 		if [[ $sock == *$cpid* ]] || [[ $sock == *$ppid* ]]; then
 			# Open on remote!
-			nvim --server "$sock" --remote-send "<esc>:e $FILE<cr>"
-			nvim --server "$sock" --remote-send "<esc>:call cursor($LINE, $COLUMN)<cr>"
+			nvim --server "$sock" --remote-send "<c-\\><c-n>:e $FILE<cr>"
+			nvim --server "$sock" --remote-send "<c-\\><c-n>:call cursor($LINE, $COLUMN)<cr>"
 			tmux selectp -t "$id"
 			exit 0
 		fi
